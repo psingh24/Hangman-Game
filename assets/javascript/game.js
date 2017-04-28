@@ -1,8 +1,11 @@
 //Array of words
-window.onload = function() {
+$( document ).ready(function() {
 
-var words = [ "hello"];
-var alphabet = 'abcdefghijklmnopqrstuvwxy'.split('');
+var words = [ "squirtle", "bulbasaur", "charizard", "pikachu", "meowth", "pidgey", "clefairy", "hitmonchan", "poliwhirl", "grimer"];
+var pokemon = ["assets/images/squirtle.jpg", "assets/images/bulbasaur.jpg", "assets/images/charizard.jpg", "assets/images/pikachu.jpg", "assets/images/meowth.jpg", "assets/images/pidgey.jpg", "assets/images/clefairy.jpg", "assets/images/hitmonchan.jpg", "assets/images/poliwhirl.jpg", "assets/images/grimer.jpg"]
+var pokemonSolved = ["assets/images/squirtleSolved.jpg", "assets/images/bulbasaurSolved.jpg", "assets/images/charizardSolved.jpg", "assets/images/pikachuSolved.jpg", "assets/images/meowthSolved.jpg", "assets/images/pidgeySolved.jpg", "assets/images/clefairySolved.jpg", "assets/images/hitmonchanSolved.jpg", "assets/images/poliwhirlSolved.jpg", "assets/images/grimerSolved.jpg" ]
+var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
+console.log(alphabet)
 
 // Wins counter, Lives start at 10, 
 var wins = 0;
@@ -23,7 +26,7 @@ for (var i = 0; i < word.length; i++) {
 	//Replace all letters in word with "_"
 	answerArray[i] = "_";
 }
-
+console.log(answerArray)
 
 //Game reset 
 function gameReset() {
@@ -36,21 +39,56 @@ function gameReset() {
 
 }
 
+//Audio Function 
+
+function introAudio() {
+	var intro = new Audio("assets/audio/poke-who.wav").play();
+}
+
+//Load image
+function loadImage () {
+	$("#image").html("<img class='poke' src='"+pokemon[words.indexOf(word)]+"'>")
+}
+
+function loadImageSolved () {
+	$("#image").html("<img src='"+pokemonSolved[words.indexOf(word)]+"'>")
+}
+
+
+console.log(words.indexOf(word));
+console.log(word);
+
+introAudio();
 // fucntion to write contentst to the page. 
 function loadDocumentContents () {
-		var html = "<h3>Press any key to play!</h3>"+
+
+			$("#game").html("<img class='pokedex' src='http://www.geocities.ws/pokemontours2/indexes/objects/pokedex1.gif'>"+"<div class='text'><p>Guess a letter to begin!</p>"+
 					"<p>Wins: "+ wins +"</p>"+
 					"<p>Lives: "+ lives +"</p>"+
 					// writes the word with dashes and removes the commas and adds a space
-					"<p>Word: "+ answerArray.join(" ") +"</p>"+
+					"<p>Pokemon: "+ answerArray.join(" ") +"</p>"+
 					// writes letters guessed to page 
-					"<p>Guessed Letters: "+ guesses.join(" ") +"</p>"
-			document.querySelector("#game").innerHTML = html;
+					"<p>Guessed Letters: "+ guesses.join(" ") +"</p></div>");
+
+
+			loadImage();
+
+			
+// var html = "<h3>Press any key to play!</h3>"+
+		// 			"<p>Wins: "+ wins +"</p>"+
+		// 			"<p>Lives: "+ lives +"</p>"+
+		// 			// writes the word with dashes and removes the commas and adds a space
+		// 			"<p>Word: "+ answerArray.join(" ") +"</p>"+
+		// 			// writes letters guessed to page 
+		// 			"<p>Guessed Letters: "+ guesses.join(" ") +"</p>"
+		// 	document.querySelector("#game").innerHTML = html;
 }
 
 loadDocumentContents();
 
-console.log(word);
+
+
+
 document.onkeyup = function(event) {
 	var userGuess = event.key;
 
@@ -71,6 +109,7 @@ document.onkeyup = function(event) {
 						while (indexOfGuess >= 0) {
 							answerArray[indexOfGuess] = userGuess;
 							indexOfGuess = word.indexOf(userGuess, indexOfGuess + 1);
+
 						}
 						
 					}
@@ -83,7 +122,10 @@ document.onkeyup = function(event) {
 						guesses = [];
 						answerArray = [];
 						gameReset();
+
 						loadDocumentContents();
+
+						introAudio();
 					
 					}
 					if (lives === 0) {
@@ -102,7 +144,7 @@ document.onkeyup = function(event) {
 	} 
 }
 
-}
+});
 	//Select the game area and replace all commas in word with spaces
 
 
