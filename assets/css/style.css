@@ -1,6 +1,10 @@
 body {
-	background-image: url("https://s-media-cache-ak0.pinimg.com/originals/77/d5/89/77d5892879682be6d71f83ff5eda71b4--calvin-and-hobbes-wallpaper-beach-wallpaper.jpg")
-
+	background: url(https://s-media-cache-ak0.pinimg.com/originals/77/d5/89/77d5892879682be6d71f83ff5eda71b4--calvin-and-hobbes-wallpaper-beach-wallpaper.jpg) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover; 
+                background-size: 100% 100%;
 }
 
 
@@ -15,17 +19,12 @@ body {
 	opacity: .7;
 }
 
-@font-face {
-	
-	src:url("assets/pokemon/pokemon.ttf");
-	font-family: "pokemon";
-}
 
 
 #game {
 
 	position: relative;
-	font-family: "pokemon";
+	
 	font-size: 17px;
 }
 
@@ -33,15 +32,119 @@ body {
 .pokedex {
 	position: absolute;
 	height: 520px;
-	left: -30px
+	left: -240px
 }
 
 .text {
 	position: absolute;
-	left: 35px;
+	left: -182px;
 	top: 140px;
 }
 #img {
 	position: relative;
 	left: -70px
 }
+
+.navbar {
+	position: fixed;
+}
+
+
+@media screen and (max-width: 1920px) {
+
+	.logo {
+		height: 180px;
+		width: 800px;
+	}
+
+	.poke {
+		height: 500px;
+	}
+
+	.pokedex {
+		height: 550px;
+		left: -290px;
+	}
+
+	#game {
+		font-size: 17px;
+	}
+
+	.text {
+		top: 150px;
+		left: -230px;
+	}
+  .container {
+    width: 1670px;
+    padding-top: 100px;
+  }
+}
+
+@media screen and (max-width: 1580px) {
+
+	.logo {
+		height: 140px;
+		width: 550px;
+	}
+
+	.poke {
+		height: 400px;
+	}
+
+	.pokedex {
+		height: 450px;
+		left: -290px;
+	}
+
+	#game {
+		font-size: 13px;
+	}
+
+	.text {
+		top: 130px;
+		left: -240px;
+	}
+  .container {
+    width: 1370px;
+    padding-top: 50px;
+
+  }
+
+  .footer {
+  	padding-top: 50px;
+  }
+}
+
+@media screen and (max-width: 1220px) {
+
+	.logo {
+		height: 100px;
+		width: 450px;
+	}
+
+	.poke {
+		height: 400px;
+	}
+
+	.pokedex {
+		height: 450px;
+		left: -335px;
+	}
+
+	#game {
+		font-size: 13px;
+	}
+
+	.text {
+		top: 130px;
+		left: -240px;
+	}
+  .container {
+    width: 1370px;
+    padding-top: 200px;
+  }
+}
+
+
+
+

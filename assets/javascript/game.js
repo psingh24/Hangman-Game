@@ -45,6 +45,15 @@ function introAudio() {
 	var intro = new Audio("assets/audio/poke-who.wav").play();
 }
 
+function loseAudio() {
+	var end = new Audio("assets/audio/theme.").play();
+}
+
+// function themeSong () {
+// 	var theme = new Audio("assets/audio/theme.mp3").play();
+	
+// }
+
 //Load image
 function loadImage () {
 	$("#image").html("<img class='poke' src='"+pokemon[words.indexOf(word)]+"'>")
@@ -54,15 +63,21 @@ function loadImageSolved () {
 	$("#image").html("<img src='"+pokemonSolved[words.indexOf(word)]+"'>")
 }
 
+// function audioOff() {
+// 	$("#audioOff").on("click", function() {
+// 		theme.pause();
+// 	})
+// }
 
-console.log(words.indexOf(word));
-console.log(word);
 
+
+// themeSong();
 introAudio();
+// audioOff();
 // fucntion to write contentst to the page. 
 function loadDocumentContents () {
 
-			$("#game").html("<img class='pokedex' src='http://www.geocities.ws/pokemontours2/indexes/objects/pokedex1.gif'>"+"<div class='text'><p>Guess a letter to begin!</p>"+
+			$("#game").html("<img class='pokedex' src='assets/images/pokedex.png'>"+"<div class='text'><p>Guess a letter to begin!</p>"+
 					"<p>Wins: "+ wins +"</p>"+
 					"<p>Lives: "+ lives +"</p>"+
 					// writes the word with dashes and removes the commas and adds a space
@@ -71,7 +86,7 @@ function loadDocumentContents () {
 					"<p>Guessed Letters: "+ guesses.join(" ") +"</p></div>");
 
 
-			loadImage();
+		loadImage();
 
 			
 // var html = "<h3>Press any key to play!</h3>"+
@@ -85,6 +100,7 @@ function loadDocumentContents () {
 }
 
 loadDocumentContents();
+	loadImage();
 
 
 
@@ -92,28 +108,32 @@ loadDocumentContents();
 document.onkeyup = function(event) {
 	var userGuess = event.key;
 
+
 			// the usersGuess will be limited to letters the in alphabet array. 
 			if (alphabet.indexOf(userGuess) > -1) {
 
 					// if the userGuess is not in the guesses array 
 					if (guesses.indexOf(userGuess) === -1) {
+						//push the letters guessed to the guesses array
 						guesses.push(userGuess);
 
-
+							//indexOfGuess is the words index in relation to the userguess
 						var indexOfGuess = word.indexOf(userGuess);
-
+						//if the userguess index is -1, it means that letter guessed is not in the word
 						if(indexOfGuess === -1) {
 							lives--;
 
 						}
+						//while all letters guessed that are in the word
 						while (indexOfGuess >= 0) {
+							//replace the letter guessed in the Answer
 							answerArray[indexOfGuess] = userGuess;
 							indexOfGuess = word.indexOf(userGuess, indexOfGuess + 1);
 
 						}
 						
 					}
-
+						//if the answerArray does not "_" the you win
 					if (answerArray.includes("_") === false) {
 						
 
@@ -123,11 +143,13 @@ document.onkeyup = function(event) {
 						answerArray = [];
 						gameReset();
 
-						loadDocumentContents();
+						// loadImageSolved();
+						
 
 						introAudio();
 					
 					}
+				
 					if (lives === 0) {
 						var playAgain = alert("No more guesses left, would you like to play again?")
 						if (playAgain = true) {
@@ -141,6 +163,8 @@ document.onkeyup = function(event) {
 					}
 
 	loadDocumentContents();
+	
+
 	} 
 }
 
