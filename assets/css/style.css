@@ -44,6 +44,7 @@ audio {
 	position: absolute;
 	left: -182px;
 	top: 140px;
+	line-height: 35px;
 }
 #img {
 	position: relative;
@@ -78,6 +79,7 @@ audio {
 	.text {
 		top: 150px;
 		left: -230px;
+
 	}
   .container {
     width: 1670px;
@@ -114,6 +116,7 @@ audio {
 	.text {
 		top: 130px;
 		left: -240px;
+		line-height: 27px;
 	}
   .container {
     width: 1370px;
