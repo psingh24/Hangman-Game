@@ -7,6 +7,11 @@ body {
                 background-size: 100% 100%;
 }
 
+audio {
+	position: relative;
+	top: 363px;
+	left: 140px;
+}
 
 .container {
 	padding-top: 100px;
@@ -78,6 +83,12 @@ body {
     width: 1670px;
     padding-top: 100px;
   }
+  audio {
+	position: relative;
+	top: 363px;
+	left: 140px;
+
+}
 }
 
 @media screen and (max-width: 1580px) {
@@ -106,13 +117,19 @@ body {
 	}
   .container {
     width: 1370px;
-    padding-top: 50px;
+    padding-top: 100px;
 
   }
 
   .footer {
   	padding-top: 50px;
   }
+  audio {
+	position: relative;
+	top: 293px;
+	left: 59px;
+	width: 250px
+}
 }
 
 @media screen and (max-width: 1220px) {
@@ -123,12 +140,12 @@ body {
 	}
 
 	.poke {
-		height: 400px;
+		height: 350px;
 	}
 
 	.pokedex {
-		height: 450px;
-		left: -335px;
+		height: 410px;
+		left: -312px;
 	}
 
 	#game {
@@ -136,13 +153,53 @@ body {
 	}
 
 	.text {
-		top: 130px;
-		left: -240px;
+		top: 113px;
+		left: -270px;
 	}
   .container {
     width: 1370px;
     padding-top: 200px;
   }
+  audio {
+	position: relative;
+	top: 265px;
+	left: 3px;
+	width: 240px;
+}
+}
+
+@media screen and (max-width: 990px) {
+
+	.poke {
+		position: relative;
+		left: 254px;
+	}
+
+	.pokedex {
+		left: -13px;
+	}
+
+	.text {
+		top: 113px;
+		left: 17px;
+		position: relative;
+		font-size: 12px;
+	}
+
+#game {
+	position: absolute;
+	left: 269px;
+	font-size: 13px;
+	}
+audio {
+	position: relative;
+	top: 265px;
+	left: 572px;
+	width: 240px;
+}
+.container {
+	padding-top: 50px;
+}
 }
 
 

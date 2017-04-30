@@ -1,14 +1,15 @@
 //Array of words
 $( document ).ready(function() {
 
-var words = [ "squirtle", "bulbasaur", "charizard", "pikachu", "meowth", "pidgey", "clefairy", "hitmonchan", "poliwhirl", "grimer"];
-var pokemon = ["assets/images/squirtle.jpg", "assets/images/bulbasaur.jpg", "assets/images/charizard.jpg", "assets/images/pikachu.jpg", "assets/images/meowth.jpg", "assets/images/pidgey.jpg", "assets/images/clefairy.jpg", "assets/images/hitmonchan.jpg", "assets/images/poliwhirl.jpg", "assets/images/grimer.jpg"]
-var pokemonSolved = ["assets/images/squirtleSolved.jpg", "assets/images/bulbasaurSolved.jpg", "assets/images/charizardSolved.jpg", "assets/images/pikachuSolved.jpg", "assets/images/meowthSolved.jpg", "assets/images/pidgeySolved.jpg", "assets/images/clefairySolved.jpg", "assets/images/hitmonchanSolved.jpg", "assets/images/poliwhirlSolved.jpg", "assets/images/grimerSolved.jpg" ]
+var words = [ "squirtle", "bulbasaur", "charizard", "pikachu", "meowth", "pidgey", "clefairy", "hitmonchan", "poliwhirl", "grimer", "dewgong", "flareon", "nidorino", "omanyte", "voltorb"];
+var pokemon = ["assets/images/squirtle.jpg", "assets/images/bulbasaur.jpg", "assets/images/charizard.jpg", "assets/images/pikachu.jpg", "assets/images/meowth.jpg", "assets/images/pidgey.jpg", "assets/images/clefairy.jpg", "assets/images/hitmonchan.jpg", "assets/images/poliwhirl.jpg", "assets/images/grimer.jpg", "assets/images/dewgong.jpg",  "assets/images/flareon.jpg",  "assets/images/nidorino.jpg",  "assets/images/omanyte.jpg",  "assets/images/voltorb.jpg"]
+var pokemonSolved = ["assets/images/squirtleSolved.jpg", "assets/images/bulbasaurSolved.jpg", "assets/images/charizardSolved.jpg", "assets/images/pikachuSolved.jpg", "assets/images/meowthSolved.jpg", "assets/images/pidgeySolved.jpg", "assets/images/clefairySolved.jpg", "assets/images/hitmonchanSolved.jpg", "assets/images/poliwhirlSolved.jpg", "assets/images/grimerSolved.jpg", "assets/images/dewgongSolved.jpg", "assets/images/flareonSolved.jpg", "assets/images/nidorinoSolved.jpg", "assets/images/omanyteSolved.jpg", "assets/images/voltorbSolved.jpg" ]
 var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
 console.log(alphabet)
 
 // Wins counter, Lives start at 10, 
 var wins = 0;
+
 var lives = 10;
 // This will contain the guesses of the user
 var guesses = [];
@@ -46,17 +47,22 @@ function introAudio() {
 }
 
 function loseAudio() {
-	var end = new Audio("assets/audio/theme.").play();
+	var end = new Audio("assets/audio/teamrocket.mp3").play();
 }
 
 // function themeSong () {
 // 	var theme = new Audio("assets/audio/theme.mp3").play();
+// 	theme.volume = 1;
 	
 // }
 
-//Load image
+function setHalfVolume() {
+    var myAudio = document.getElementById("audio1");  
+    myAudio.volume = 0.3; //Changed this to 0.5 or 50% volume since the function is called Set Half Volume ;)
+}
+//Load Images       Need to figure out how to switch between images
 function loadImage () {
-	$("#image").html("<img class='poke' src='"+pokemon[words.indexOf(word)]+"'>")
+	$("#image").html("<img class='poke' src='"+pokemonSolved[words.indexOf(word)]+"'>")
 }
 
 function loadImageSolved () {
@@ -71,7 +77,7 @@ function loadImageSolved () {
 
 
 
-// themeSong();
+setHalfVolume();
 introAudio();
 // audioOff();
 // fucntion to write contentst to the page. 
@@ -87,6 +93,7 @@ function loadDocumentContents () {
 
 
 		loadImage();
+	}
 
 			
 // var html = "<h3>Press any key to play!</h3>"+
@@ -97,10 +104,10 @@ function loadDocumentContents () {
 		// 			// writes letters guessed to page 
 		// 			"<p>Guessed Letters: "+ guesses.join(" ") +"</p>"
 		// 	document.querySelector("#game").innerHTML = html;
-}
+
 
 loadDocumentContents();
-	loadImage();
+	
 
 
 
@@ -143,13 +150,13 @@ document.onkeyup = function(event) {
 						answerArray = [];
 						gameReset();
 
-						// loadImageSolved();
+						loadImageSolved();
 						
 
 						introAudio();
 					
 					}
-				
+
 					if (lives === 0) {
 						var playAgain = alert("No more guesses left, would you like to play again?")
 						if (playAgain = true) {
