@@ -1,4 +1,4 @@
-//Array of words
+
 $( document ).ready(function() {
 
 var words = [ "squirtle", "bulbasaur", "charizard", "pikachu", "meowth", "pidgey", "clefairy", "hitmonchan", "poliwhirl", "grimer", "dewgong", "flareon", "nidorino", "omanyte", "voltorb"];
@@ -97,13 +97,13 @@ function loadDocumentContents () {
 
 			
 // var html = "<h3>Press any key to play!</h3>"+
-		// 			"<p>Wins: "+ wins +"</p>"+
-		// 			"<p>Lives: "+ lives +"</p>"+
-		// 			// writes the word with dashes and removes the commas and adds a space
-		// 			"<p>Word: "+ answerArray.join(" ") +"</p>"+
-		// 			// writes letters guessed to page 
-		// 			"<p>Guessed Letters: "+ guesses.join(" ") +"</p>"
-		// 	document.querySelector("#game").innerHTML = html;
+// 					"<p>Wins: "+ wins +"</p>"+
+// 					"<p>Lives: "+ lives +"</p>"+
+// 					// writes the word with dashes and removes the commas and adds a space
+// 					"<p>Word: "+ answerArray.join(" ") +"</p>"+
+// 					// writes letters guessed to page 
+// 					"<p>Guessed Letters: "+ guesses.join(" ") +"</p>"
+// 			document.querySelector("#game").innerHTML = html;
 
 
 loadDocumentContents();
@@ -199,6 +199,7 @@ document.onkeyup = function(event) {
 // 			var el = document.getElementById("letters");
 // 				el.innerHTML = guesses.join(" ");
 // }
+
 
 
 
